@@ -138,6 +138,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func addTapped() {
         print("Plus pressed")
+        homeView.toggleBar()
     }
+    
     
 }

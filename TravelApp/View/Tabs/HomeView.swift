@@ -10,6 +10,15 @@ import UIKit
 
 class HomeView: UIView {
     
+    var shownHeightConstraint: NSLayoutConstraint!
+    var hiddenHeightConstraint: NSLayoutConstraint!
+    var barIsHidden: Bool = true
+    
+    
+    let containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     let searchBar: UISearchBar = {
         let bar = UISearchBar()
@@ -46,15 +55,45 @@ class HomeView: UIView {
     }
     
     func setup() {
+        hiddenHeightConstraint = searchButton.heightAnchor.constraint(equalToConstant: 0)
+        hiddenHeightConstraint.isActive = true
         
         
-        addSubview(searchButton)
-        searchButton.setAnchor(top: safeTopAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 70, height: 48)
+        addSubview(containerView)
+        containerView.setAnchor(top: safeTopAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         
-        addSubview(searchBar)
-        searchBar.setAnchor(top: safeTopAnchor, leading: leadingAnchor, bottom: nil, trailing: searchButton.leadingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: -1, width: 0, height: 48)
+        hiddenHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: 0)
+        hiddenHeightConstraint.isActive = true
+        
+        shownHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: 48)
+        shownHeightConstraint.isActive = false
+        
+        
+        
+        containerView.addSubview(searchButton)
+        searchButton.setAnchor(top: containerView.topAnchor, leading: nil, bottom: containerView.bottomAnchor, trailing: containerView.trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 70, height: 0)
+
+        containerView.addSubview(searchBar)
+        searchBar.setAnchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: searchButton.leadingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: -1)
         
         addSubview(tableView)
-        tableView.setAnchor(top: searchButton.bottomAnchor, leading: leadingAnchor, bottom: safeBottomAnchor, trailing: trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        tableView.setAnchor(top: containerView.bottomAnchor, leading: leadingAnchor, bottom: safeBottomAnchor, trailing: trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+    }
+    
+    
+    func toggleBar() {
+        if (barIsHidden) {
+            hiddenHeightConstraint.isActive = false
+            shownHeightConstraint.isActive = true
+            barIsHidden = !barIsHidden
+        } else {
+            hiddenHeightConstraint.isActive = true
+            shownHeightConstraint.isActive = false
+            barIsHidden = !barIsHidden
+        }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.layoutIfNeeded()
+        }
     }
 }
