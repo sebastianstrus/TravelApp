@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D1AD12E2294B9C700B7D4B7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AD12D2294B9C700B7D4B7 /* ChatView.swift */; };
 		7D276378228F60D600519C10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D276377228F60D600519C10 /* AppDelegate.swift */; };
 		7D276380228F60D600519C10 /* TravelApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D27637E228F60D600519C10 /* TravelApp.xcdatamodeld */; };
 		7D276382228F60D700519C10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D276381228F60D700519C10 /* Assets.xcassets */; };
@@ -26,7 +27,6 @@
 		7D2763B2228F7BA100519C10 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B1228F7BA100519C10 /* HomeController.swift */; };
 		7D2763B4228F7BB600519C10 /* SecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B3228F7BB600519C10 /* SecondController.swift */; };
 		7D2763B6228F7BC500519C10 /* ThirdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B5228F7BC500519C10 /* ThirdController.swift */; };
-		7D2763B8228F7BDE00519C10 /* FourthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B7228F7BDE00519C10 /* FourthController.swift */; };
 		7D2763BA228F7BF800519C10 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B9228F7BF800519C10 /* ChatController.swift */; };
 		7D2763BC228F7C1D00519C10 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763BB228F7C1D00519C10 /* String+Extension.swift */; };
 		7D2763BE228F7F0000519C10 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763BD228F7F0000519C10 /* UITextField+Extension.swift */; };
@@ -43,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D1AD12D2294B9C700B7D4B7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		7D276374228F60D600519C10 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D276377228F60D600519C10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D27637F228F60D600519C10 /* TravelApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelApp.xcdatamodel; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		7D2763B1228F7BA100519C10 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		7D2763B3228F7BB600519C10 /* SecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondController.swift; sourceTree = "<group>"; };
 		7D2763B5228F7BC500519C10 /* ThirdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdController.swift; sourceTree = "<group>"; };
-		7D2763B7228F7BDE00519C10 /* FourthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthController.swift; sourceTree = "<group>"; };
 		7D2763B9228F7BF800519C10 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		7D2763BB228F7C1D00519C10 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7D2763BD228F7F0000519C10 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -246,7 +246,6 @@
 				7D2763B1228F7BA100519C10 /* HomeController.swift */,
 				7D2763B3228F7BB600519C10 /* SecondController.swift */,
 				7D2763B5228F7BC500519C10 /* ThirdController.swift */,
-				7D2763B7228F7BDE00519C10 /* FourthController.swift */,
 				7D2763B9228F7BF800519C10 /* ChatController.swift */,
 			);
 			path = Tabs;
@@ -256,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				7D2764462291EEB600519C10 /* HomeView.swift */,
+				7D1AD12D2294B9C700B7D4B7 /* ChatView.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -353,8 +353,8 @@
 				7D2763A1228F676B00519C10 /* SignUpView.swift in Sources */,
 				7D2763AF228F6E8F00519C10 /* UIColor+Extension.swift in Sources */,
 				7D276378228F60D600519C10 /* AppDelegate.swift in Sources */,
+				7D1AD12E2294B9C700B7D4B7 /* ChatView.swift in Sources */,
 				7D276380228F60D600519C10 /* TravelApp.xcdatamodeld in Sources */,
-				7D2763B8228F7BDE00519C10 /* FourthController.swift in Sources */,
 				7D2763B6228F7BC500519C10 /* ThirdController.swift in Sources */,
 				7D276390228F64D000519C10 /* TabBarController.swift in Sources */,
 				7D27639F228F675D00519C10 /* LoginView.swift in Sources */,

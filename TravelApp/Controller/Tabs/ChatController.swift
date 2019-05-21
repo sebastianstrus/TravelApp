@@ -10,13 +10,25 @@ import UIKit
 
 class ChatController: UIViewController {
 
+    private var chatView: ChatView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.yellow
+        view.backgroundColor = UIColor.white
         
         setupNavigationBar()
 
         // Do any additional setup after loading the view.
+        setupView()
+    }
+    
+    private func setupView() {
+        let chatView = ChatView()
+        self.chatView = chatView
+        view.addSubview(chatView)
+        chatView.pinToEdges(view: view)
+        
+
     }
     
 

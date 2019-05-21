@@ -27,13 +27,11 @@ class TabBarController: UITabBarController {
         secondController.tabBarItem.title = "Second".localized
         let thirdController = createNavController(vc: ThirdController(), unselected: "third_unselected", selected: "third_selected")
         thirdController.tabBarItem.title = "Third".localized
-        let fourthController = createNavController(vc: FourthController(), unselected: "fourth_unselected", selected: "fourth_selected")
-        fourthController.tabBarItem.title = "Fourth".localized
-        let fifthController = createNavController(vc: ChatController(), unselected: "chat_unselected", selected: "chat_selected")
-        fifthController.tabBarItem.title = "Chat".localized
+        let chatController = createNavController(vc: ChatController(), unselected: "chat_unselected", selected: "chat_selected")
+        chatController.tabBarItem.title = "Chat".localized
         
         //list, add, map, favorite, account
-        viewControllers = [firstController, secondController, thirdController, fourthController, fifthController]
+        viewControllers = [firstController, secondController, thirdController, chatController]
         
         //set top margin
         guard let items = tabBar.items else { return }
