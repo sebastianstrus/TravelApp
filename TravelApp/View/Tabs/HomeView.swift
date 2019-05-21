@@ -10,6 +10,8 @@ import UIKit
 
 class HomeView: UIView {
     
+    var searchAction: (() -> Void)?
+    
     var shownHeightConstraint: NSLayoutConstraint!
     var hiddenHeightConstraint: NSLayoutConstraint!
     var barIsHidden: Bool = true
@@ -33,6 +35,7 @@ class HomeView: UIView {
         button.backgroundColor = UIColor.mainBlue
         button.setTitle("Search", for: .normal)
         button.layer.borderWidth = 0.2
+        button.addTarget(self, action: #selector(handleSearch), for: UIControl.Event.touchUpInside)
         return button
     }()
     
@@ -95,5 +98,14 @@ class HomeView: UIView {
         UIView.animate(withDuration: 0.5) {
             self.layoutIfNeeded()
         }
+    }
+    
+    @objc func handleSearch() {
+        searchAction?()
+    }
+    
+    // public methods
+    func getWord() -> String? {
+        return searchBar.text
     }
 }

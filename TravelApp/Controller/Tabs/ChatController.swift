@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FifthController: UIViewController {
+class ChatController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class FifthController: UIViewController {
 
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.title = "Czat"
+        navigationItem.title = "Chat"
         
     }
 }

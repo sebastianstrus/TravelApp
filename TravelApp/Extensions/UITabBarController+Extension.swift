@@ -16,6 +16,8 @@ extension UITabBarController {
         //navController.navigationBar.isTranslucent = false
         navController.navigationBar.tintColor = UIColor.white
         
+        let image = UIImage(named: unselected)?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        
         navController.tabBarItem.image = UIImage(named: unselected)
         navController.tabBarItem.selectedImage = UIImage(named: selected)
         return navController

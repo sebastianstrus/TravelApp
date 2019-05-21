@@ -21,16 +21,16 @@ class TabBarController: UITabBarController {
         tabBar.barTintColor = UIColor.mainBlue
         tabBar.tintColor = UIColor.white
         
-        let firstController = createNavController(vc: HomeController(), unselected: "first_unselected", selected: "first_selected")
-        firstController.tabBarItem.title = "First".localized
-        let secondController = createNavController(vc: SecondController(), unselected: "second_unselected", selected: "second_selected")
+        let firstController = createNavController(vc: HomeController(), unselected: "trips_unselected", selected: "trips_selected")
+        firstController.tabBarItem.title = "Trips".localized
+        let secondController = createNavController(vc: SecondController(), unselected: "second_unselected", selected: "trips_icon")
         secondController.tabBarItem.title = "Second".localized
         let thirdController = createNavController(vc: ThirdController(), unselected: "third_unselected", selected: "third_selected")
         thirdController.tabBarItem.title = "Third".localized
         let fourthController = createNavController(vc: FourthController(), unselected: "fourth_unselected", selected: "fourth_selected")
         fourthController.tabBarItem.title = "Fourth".localized
-        let fifthController = createNavController(vc: FifthController(), unselected: "fifth_unselected", selected: "fifth_selected")
-        fifthController.tabBarItem.title = "Czat".localized
+        let fifthController = createNavController(vc: ChatController(), unselected: "chat_unselected", selected: "chat_selected")
+        fifthController.tabBarItem.title = "Chat".localized
         
         //list, add, map, favorite, account
         viewControllers = [firstController, secondController, thirdController, fourthController, fifthController]
@@ -38,7 +38,7 @@ class TabBarController: UITabBarController {
         //set top margin
         guard let items = tabBar.items else { return }
         for item in items {
-            item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
+            item.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
         }
     }
 }

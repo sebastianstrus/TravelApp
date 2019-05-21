@@ -27,7 +27,7 @@
 		7D2763B4228F7BB600519C10 /* SecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B3228F7BB600519C10 /* SecondController.swift */; };
 		7D2763B6228F7BC500519C10 /* ThirdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B5228F7BC500519C10 /* ThirdController.swift */; };
 		7D2763B8228F7BDE00519C10 /* FourthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B7228F7BDE00519C10 /* FourthController.swift */; };
-		7D2763BA228F7BF800519C10 /* FifthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B9228F7BF800519C10 /* FifthController.swift */; };
+		7D2763BA228F7BF800519C10 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763B9228F7BF800519C10 /* ChatController.swift */; };
 		7D2763BC228F7C1D00519C10 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763BB228F7C1D00519C10 /* String+Extension.swift */; };
 		7D2763BE228F7F0000519C10 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763BD228F7F0000519C10 /* UITextField+Extension.swift */; };
 		7D2763C0228F805000519C10 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763BF228F805000519C10 /* UIButton+Extension.swift */; };
@@ -35,12 +35,11 @@
 		7D2763C4228F810100519C10 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763C3228F810100519C10 /* Strings.swift */; };
 		7D2763C6228F813D00519C10 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763C5228F813D00519C10 /* UIViewController+Extension.swift */; };
 		7D27643E2291EAC400519C10 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27643D2291EAC400519C10 /* HomeTableViewCell.swift */; };
-		7D2764412291EBCB00519C10 /* Home1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27643F2291EBCB00519C10 /* Home1TableViewCell.swift */; };
-		7D2764422291EBCB00519C10 /* Home1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D2764402291EBCB00519C10 /* Home1TableViewCell.xib */; };
 		7D2764442291ECC100519C10 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2764432291ECC100519C10 /* UIImageView+Extension.swift */; };
 		7D2764472291EEB600519C10 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2764462291EEB600519C10 /* HomeView.swift */; };
 		7D2764492291EF0000519C10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2764482291EF0000519C10 /* Post.swift */; };
 		7D27644B2293525600519C10 /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D27644A2293525600519C10 /* Boogaloo-Regular.ttf */; };
+		7D82ECA122945F7D00441A3F /* TempData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82ECA022945F7D00441A3F /* TempData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +65,7 @@
 		7D2763B3228F7BB600519C10 /* SecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondController.swift; sourceTree = "<group>"; };
 		7D2763B5228F7BC500519C10 /* ThirdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdController.swift; sourceTree = "<group>"; };
 		7D2763B7228F7BDE00519C10 /* FourthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthController.swift; sourceTree = "<group>"; };
-		7D2763B9228F7BF800519C10 /* FifthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthController.swift; sourceTree = "<group>"; };
+		7D2763B9228F7BF800519C10 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		7D2763BB228F7C1D00519C10 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7D2763BD228F7F0000519C10 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		7D2763BF228F805000519C10 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -74,12 +73,11 @@
 		7D2763C3228F810100519C10 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		7D2763C5228F813D00519C10 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		7D27643D2291EAC400519C10 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		7D27643F2291EBCB00519C10 /* Home1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home1TableViewCell.swift; sourceTree = "<group>"; };
-		7D2764402291EBCB00519C10 /* Home1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home1TableViewCell.xib; sourceTree = "<group>"; };
 		7D2764432291ECC100519C10 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		7D2764462291EEB600519C10 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7D2764482291EF0000519C10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7D27644A2293525600519C10 /* Boogaloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Boogaloo-Regular.ttf"; sourceTree = "<group>"; };
+		7D82ECA022945F7D00441A3F /* TempData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +143,7 @@
 			children = (
 				7D27637E228F60D600519C10 /* TravelApp.xcdatamodeld */,
 				7D2764482291EF0000519C10 /* Post.swift */,
+				7D82ECA022945F7D00441A3F /* TempData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,8 +154,6 @@
 				7D2764452291EE8000519C10 /* Tabs */,
 				7D27639B228F673100519C10 /* Authentication */,
 				7D27643D2291EAC400519C10 /* HomeTableViewCell.swift */,
-				7D27643F2291EBCB00519C10 /* Home1TableViewCell.swift */,
-				7D2764402291EBCB00519C10 /* Home1TableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,7 +247,7 @@
 				7D2763B3228F7BB600519C10 /* SecondController.swift */,
 				7D2763B5228F7BC500519C10 /* ThirdController.swift */,
 				7D2763B7228F7BDE00519C10 /* FourthController.swift */,
-				7D2763B9228F7BF800519C10 /* FifthController.swift */,
+				7D2763B9228F7BF800519C10 /* ChatController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 			files = (
 				7D276385228F60D700519C10 /* LaunchScreen.storyboard in Resources */,
 				7D27644B2293525600519C10 /* Boogaloo-Regular.ttf in Resources */,
-				7D2764422291EBCB00519C10 /* Home1TableViewCell.xib in Resources */,
 				7D276382228F60D700519C10 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,15 +340,15 @@
 				7D2763C0228F805000519C10 /* UIButton+Extension.swift in Sources */,
 				7D276396228F65EF00519C10 /* LoginController.swift in Sources */,
 				7D2763AD228F6E1800519C10 /* AppColors.swift in Sources */,
+				7D82ECA122945F7D00441A3F /* TempData.swift in Sources */,
 				7D2764492291EF0000519C10 /* Post.swift in Sources */,
 				7D27639A228F661E00519C10 /* SignUpController.swift in Sources */,
-				7D2763BA228F7BF800519C10 /* FifthController.swift in Sources */,
+				7D2763BA228F7BF800519C10 /* ChatController.swift in Sources */,
 				7D27639D228F674F00519C10 /* WelcomeView.swift in Sources */,
 				7D2764472291EEB600519C10 /* HomeView.swift in Sources */,
 				7D2763C4228F810100519C10 /* Strings.swift in Sources */,
 				7D2763BC228F7C1D00519C10 /* String+Extension.swift in Sources */,
 				7D2763BE228F7F0000519C10 /* UITextField+Extension.swift in Sources */,
-				7D2764412291EBCB00519C10 /* Home1TableViewCell.swift in Sources */,
 				7D2763C6228F813D00519C10 /* UIViewController+Extension.swift in Sources */,
 				7D2763A1228F676B00519C10 /* SignUpView.swift in Sources */,
 				7D2763AF228F6E8F00519C10 /* UIColor+Extension.swift in Sources */,

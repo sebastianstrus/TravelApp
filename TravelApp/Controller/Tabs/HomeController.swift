@@ -14,13 +14,22 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private let cellId = "PostCellId"
     private var allPosts: [Post]  = []
     
+    private var postsToShow: [Post] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hideKeyboardWhenTappedAround()
+        
         setupNavigationBar()
         
-        for i in 0...11 {
-            allPosts.append(Post(title: "Panama", imageName: "profile\(i)"))
-        }
+        allPosts = TempData.getPosts()
+        
+        postsToShow = allPosts
+        //let a = Post(title: <#T##String#>, imageName: <#T##String#>)
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,6 +42,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func setupView() {
         let homeView = HomeView()
         self.homeView = homeView
+        self.homeView.searchAction = handleSearch
         view.addSubview(homeView)
         homeView.pinToEdges(view: view)
         homeView.tableView.delegate = self
@@ -50,14 +60,16 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allPosts.count
+        return postsToShow.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeTableViewCell
      
-        cell.pictureImageView.image = UIImage(named: "profile\(indexPath.row)")
+        cell.pictureImageView.image = UIImage(named:postsToShow[indexPath.row].imageName!)
+        cell.candidatesLabel.text = "\(postsToShow[indexPath.row].numberOfCandidates!)"
+        cell.titleLabel.text = postsToShow[indexPath.row].title
         cell.backgroundColor = UIColor.white
         cell.selectionStyle = .none
      
@@ -141,5 +153,33 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         homeView.toggleBar()
     }
     
+    //TODO: simplify: let filtered = numbers.filter({ return $0 == 3 })
+    @objc func handleSearch() {
+        postsToShow.removeAll()
+        guard let word = homeView.getWord(), !word.isEmpty else { return }
+
+        for post in allPosts {
+            if post.title?.lowercased().contains((word).lowercased()) == true {
+                postsToShow.append(post)
+            }
+        }
+        animateTable()
+    }
     
+    func animateTable() {
+        homeView.tableView.reloadData()
+        let cells = homeView.tableView.visibleCells
+        let tableViewHeight = homeView.tableView.bounds.size.height
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+        }
+        var delayCounter = 0
+        
+        for cell in cells {
+            UIView.animate(withDuration: 1.75, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                cell.transform = CGAffineTransform.identity
+            }, completion: nil)
+            delayCounter += 1
+        }
+    }
 }

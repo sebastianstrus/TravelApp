@@ -11,7 +11,9 @@ import Foundation
 struct Post: Codable {
     
     var title: String?
+    var date: String?
     var imageName: String?
+    var numberOfCandidates: Int?
 //    var imageUrlString: String?
 //    var rating: Double?
 //    var date: String?
@@ -21,7 +23,7 @@ struct Post: Codable {
 //    var placeLongitude: Double?
 //    var price: String?
     
-    init(title: String, imageName: String){
+    init(title: String, date: String, imageName: String, numberOfCandidates: Int){
 //         imageUrlString: String,
 //         rating: Double,
 //         date: String,
@@ -32,7 +34,9 @@ struct Post: Codable {
 //         price: String) {
         
         self.title = title
+        self.date = date
         self.imageName = imageName
+        self.numberOfCandidates = numberOfCandidates
 //        self.imageUrlString = imageUrlString
 //        self.rating = rating
 //        self.date = date

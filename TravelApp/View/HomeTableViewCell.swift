@@ -31,7 +31,7 @@ class HomeTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Panama"
+        //label.text = "Panama"
         label.textColor = .mainBlue
         label.font = AppFonts.LIST_CELL_FONT
         return label
