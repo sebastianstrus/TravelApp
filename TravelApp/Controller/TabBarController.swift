@@ -20,18 +20,22 @@ class TabBarController: UITabBarController {
     func setupTabBar() {
         tabBar.barTintColor = UIColor.mainBlue
         tabBar.tintColor = UIColor.white
+        tabBar.unselectedItemTintColor = UIColor.unselectedTabGray
         
-        let firstController = createNavController(vc: HomeController(), unselected: "trips_unselected", selected: "trips_selected")
-        firstController.tabBarItem.title = "Trips".localized
-        let secondController = createNavController(vc: SecondController(), unselected: "second_unselected", selected: "trips_icon")
-        secondController.tabBarItem.title = "Second".localized
-        let thirdController = createNavController(vc: ThirdController(), unselected: "third_unselected", selected: "third_selected")
-        thirdController.tabBarItem.title = "Third".localized
-        let chatController = createNavController(vc: ChatController(), unselected: "chat_unselected", selected: "chat_selected")
+        let homeController = createNavController(vc: HomeController(), image: "trips_icon")
+        homeController.tabBarItem.title = "Trips".localized
+        
+        let vouchersController = createNavController(vc: VouchersController(), image: "discount_icon")
+        vouchersController.tabBarItem.title = "Vouchers".localized
+        
+        let chatController = createNavController(vc: ChatController(), image: "chat_icon")
         chatController.tabBarItem.title = "Chat".localized
         
+        let accountController = createNavController(vc: AccountController(), image: "account_icon")
+        accountController.tabBarItem.title = "Account".localized
+        
         //list, add, map, favorite, account
-        viewControllers = [firstController, secondController, thirdController, chatController]
+        viewControllers = [homeController, vouchersController, chatController, accountController]
         
         //set top margin
         guard let items = tabBar.items else { return }

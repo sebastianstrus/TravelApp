@@ -1,5 +1,5 @@
 //
-//  SecondController.swift
+//  ThirdController.swift
 //  TravelApp
 //
 //  Created by Sebastian Strus on 2019-05-18.
@@ -8,12 +8,13 @@
 
 import UIKit
 
-class SecondController: UIViewController {
+class VouchersController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.white
 
+        setupNavigationBar()
         // Do any additional setup after loading the view.
     }
     
@@ -28,4 +29,9 @@ class SecondController: UIViewController {
     }
     */
 
+    fileprivate func setupNavigationBar() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.title = "Vouchers"
+    }
 }

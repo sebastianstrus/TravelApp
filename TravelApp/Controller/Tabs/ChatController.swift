@@ -14,6 +14,7 @@ class ChatController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         view.backgroundColor = UIColor.white
         
         setupNavigationBar()

@@ -26,6 +26,8 @@ class HomeView: UIView {
         let bar = UISearchBar()
         bar.barTintColor = UIColor.mainBlue
         bar.isTranslucent = false
+        // workaround to remove the border
+        bar.backgroundImage = UIImage()
         return bar
     }()
     
@@ -34,7 +36,6 @@ class HomeView: UIView {
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.mainBlue
         button.setTitle("Search", for: .normal)
-        button.layer.borderWidth = 0.2
         button.addTarget(self, action: #selector(handleSearch), for: UIControl.Event.touchUpInside)
         return button
     }()
@@ -77,7 +78,7 @@ class HomeView: UIView {
         searchButton.setAnchor(top: containerView.topAnchor, leading: nil, bottom: containerView.bottomAnchor, trailing: containerView.trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 70, height: 0)
 
         containerView.addSubview(searchBar)
-        searchBar.setAnchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: searchButton.leadingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: -1)
+        searchBar.setAnchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: searchButton.leadingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         
         addSubview(tableView)
         tableView.setAnchor(top: containerView.bottomAnchor, leading: leadingAnchor, bottom: safeBottomAnchor, trailing: trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
@@ -95,7 +96,7 @@ class HomeView: UIView {
             barIsHidden = !barIsHidden
         }
         
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
         }
     }

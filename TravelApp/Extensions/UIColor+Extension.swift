@@ -14,7 +14,7 @@ extension UIColor {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
     
-    class var silver_gray: UIColor { return UIColor.blue}
+    class var unselectedTabGray: UIColor { return UIColor(r: 100, g: 100, b: 100)}
     class var mainBlue: UIColor { return UIColor(r: 105, g: 159, b: 221)}
     
     var GREEN_BORDER: UIColor { return UIColor(r: 80, g: 227, b: 194)}
