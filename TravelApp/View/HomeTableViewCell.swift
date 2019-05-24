@@ -47,7 +47,7 @@ class HomeTableViewCell: UITableViewCell {
     }()
     
     let candidatesIV: UIImageView = {
-        var iv = UIImageView(image: UIImage(named: "candidate"))
+        var iv = UIImageView(image: UIImage(named: "candidate_icon"))
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         iv.tintColor = UIColor.mainBlue
@@ -65,21 +65,14 @@ class HomeTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
+        setupUI()
     }
     
-    private func setup() {
+    private func setupUI() {
         addSubview(cellView)
+        backgroundColor = UIColor.white
+        selectionStyle = .none
         cellView.addSubview(pictureImageView)
-        
-        /*let stackView = UIStackView(arrangedSubviews: [titleLabel, dateLabel])
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 4
-        
-        cellView.addSubview(stackView)
-         */
-        
         
         cellView.setAnchor(top: topAnchor,
                            leading: leadingAnchor,
@@ -103,19 +96,6 @@ class HomeTableViewCell: UITableViewCell {
         pictureImageView.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
         pictureImageView.backgroundColor = UIColor.orange
         
-        /*
-        stackView.setAnchor(top: cellView.topAnchor,
-                            leading: pictureImageView.trailingAnchor,
-                            bottom: cellView.bottomAnchor,
-                            trailing: cellView.trailingAnchor,
-                            paddingTop: 0,
-                            paddingLeft: 0,
-                            paddingBottom: 0,
-                            paddingRight: 5,
-                            width: 0,
-                            height: 0)
-        stackView.centerYAnchor.constraint(equalTo: pictureImageView.centerYAnchor).isActive = true*/
-        
         cellView.addSubview(titleLabel)
         titleLabel.setAnchor(top: cellView.topAnchor,
                              leading: pictureImageView.trailingAnchor,
@@ -128,16 +108,6 @@ class HomeTableViewCell: UITableViewCell {
                              width: 0,
                              height: 30)
         
-//        candidatesView.setAnchor(top: nil,
-//                             leading: stackView.leadingAnchor,
-//                             bottom: nil,
-//                             trailing: stackView.trailingAnchor,
-//                             paddingTop: 0,
-//                             paddingLeft: 0,
-//                             paddingBottom: 0,
-//                             paddingRight: 0,
-//                             width: 0,
-//                             height: Device.IS_IPHONE ? 28 : 58)
         cellView.addSubview(dateLabel)
         dateLabel.setAnchor(top: titleLabel.bottomAnchor,
                                 leading: titleLabel.leadingAnchor,
@@ -177,5 +147,11 @@ class HomeTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(imageName: String, numberCandidates: Int, title: String) {
+        pictureImageView.image = UIImage(named: imageName)
+        candidatesLabel.text = "\(numberCandidates)"
+        titleLabel.text = title
     }
 }

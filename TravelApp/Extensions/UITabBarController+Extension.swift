@@ -13,7 +13,6 @@ extension UITabBarController {
         let navController = UINavigationController(rootViewController: vc)
         
         navController.navigationBar.barTintColor = UIColor.mainBlue
-        //navController.navigationBar.isTranslucent = false
         navController.navigationBar.tintColor = UIColor.white
         
         navController.tabBarItem.image = UIImage(named: image)

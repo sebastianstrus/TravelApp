@@ -36,7 +36,6 @@
 		7D2763C6228F813D00519C10 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763C5228F813D00519C10 /* UIViewController+Extension.swift */; };
 		7D27643E2291EAC400519C10 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27643D2291EAC400519C10 /* HomeTableViewCell.swift */; };
 		7D2764442291ECC100519C10 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2764432291ECC100519C10 /* UIImageView+Extension.swift */; };
-		7D2764472291EEB600519C10 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2764462291EEB600519C10 /* HomeView.swift */; };
 		7D2764492291EF0000519C10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2764482291EF0000519C10 /* Post.swift */; };
 		7D27644B2293525600519C10 /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D27644A2293525600519C10 /* Boogaloo-Regular.ttf */; };
 		7D82ECA122945F7D00441A3F /* TempData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82ECA022945F7D00441A3F /* TempData.swift */; };
@@ -74,7 +73,6 @@
 		7D2763C5228F813D00519C10 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		7D27643D2291EAC400519C10 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		7D2764432291ECC100519C10 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
-		7D2764462291EEB600519C10 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7D2764482291EF0000519C10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7D27644A2293525600519C10 /* Boogaloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Boogaloo-Regular.ttf"; sourceTree = "<group>"; };
 		7D82ECA022945F7D00441A3F /* TempData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempData.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 		7D2764452291EE8000519C10 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				7D2764462291EEB600519C10 /* HomeView.swift */,
 				7D1AD12D2294B9C700B7D4B7 /* ChatView.swift */,
 			);
 			path = Tabs;
@@ -345,7 +342,6 @@
 				7D27639A228F661E00519C10 /* SignUpController.swift in Sources */,
 				7D2763BA228F7BF800519C10 /* ChatController.swift in Sources */,
 				7D27639D228F674F00519C10 /* WelcomeView.swift in Sources */,
-				7D2764472291EEB600519C10 /* HomeView.swift in Sources */,
 				7D2763C4228F810100519C10 /* Strings.swift in Sources */,
 				7D2763BC228F7C1D00519C10 /* String+Extension.swift in Sources */,
 				7D2763BE228F7F0000519C10 /* UITextField+Extension.swift in Sources */,

@@ -78,8 +78,26 @@ class SignUpView: UIView {
         let stackView = createStackView(views: [nameTF, emailTF, passwordTF, confirmPasswordTF, submitButton, cancelButton])
         addSubview(backgroundImageView)
         addSubview(stackView)
-        backgroundImageView.setAnchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        stackView.setAnchor(top: nil, leading: nil, bottom: nil, trailing: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: self.frame.width - (Device.IS_IPHONE ? 60 : 300), height: Device.IS_IPHONE ? 290 : 580)
+        backgroundImageView.setAnchor(top: self.topAnchor,
+                                      leading: self.leadingAnchor,
+                                      bottom: self.bottomAnchor,
+                                      trailing: self.trailingAnchor,
+                                      paddingTop: 0,
+                                      paddingLeft: 0,
+                                      paddingBottom: 0,
+                                      paddingRight: 0)
+        
+        stackView.setAnchor(top: nil,
+                            leading: nil,
+                            bottom: nil,
+                            trailing: nil,
+                            paddingTop: 0,
+                            paddingLeft: 0,
+                            paddingBottom: 0,
+                            paddingRight: 0,
+                            width: self.frame.width - (Device.IS_IPHONE ? 60 : 300),
+                            height: Device.IS_IPHONE ? 290 : 580)
+        
         stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         addSubview(profileImageView)
