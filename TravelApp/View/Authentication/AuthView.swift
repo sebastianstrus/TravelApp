@@ -68,6 +68,7 @@ class AuthView: UIView {
     fileprivate let nameTF: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Name"
+        tf.isHidden = true
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
         return tf
@@ -92,6 +93,7 @@ class AuthView: UIView {
     fileprivate let confirmPasswordTF: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Confirm password"
+        tf.isHidden = true
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
         return tf
@@ -99,8 +101,10 @@ class AuthView: UIView {
     
     fileprivate let cancelButton: UIButton = {
         let button = UIButton()
-        //button.backgroundColor = UIColor.yellow
         button.setTitle("Cancel", for: .normal)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.mainBlue.cgColor
+        button.layer.cornerRadius = 5
         button.setTitleColor(UIColor.mainBlue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
@@ -109,8 +113,10 @@ class AuthView: UIView {
     
     fileprivate let loginRegisterButton: UIButton = {
         let button = UIButton()
-        //button.backgroundColor = UIColor.green
         button.setTitle("Log in", for: .normal)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.mainBlue.cgColor
+        button.layer.cornerRadius = 5
         button.setTitleColor(UIColor.mainBlue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
@@ -125,14 +131,45 @@ class AuthView: UIView {
         
         addSubview(popupView)
         
+
         popupView.setAnchor(width: 240,
-                            height: 300)
+                            height: 0)
         
         popupView.widthAnchor.constraint(equalToConstant: 240).isActive = true
         
-        loginHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 224)
-        registerHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 300)
-        registerHeightConstraint.isActive = true
+        
+        // zmiana na 220 i 296
+        
+        
+        // 224 lub 300
+        
+        
+        
+        // 8
+        // 60
+        
+        //8
+        //30
+        //8
+        
+        //8
+        //stackview 60 + 8, 120 + 24
+        //8
+        
+        
+        
+        
+        
+        
+        // reszta: 152
+        
+        
+        //30
+        //8
+        
+        loginHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 220)
+        registerHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 296)
+        loginHeightConstraint.isActive = true
         
         popupView.centerXAnchor.constraint(equalTo: blurView.centerXAnchor).isActive = true
         yCenterAnchor = popupView.centerYAnchor.constraint(equalTo: blurView.centerYAnchor)
@@ -161,59 +198,10 @@ class AuthView: UIView {
                                                 trailing: popupView.trailingAnchor,
                                                 paddingTop: 8,
                                                 paddingLeft: 10,
-                                                paddingBottom: 0,
+                                                paddingBottom: 8,
                                                 paddingRight: 10,
                                                 width: 0,
                                                 height: 30)
-        //let textFieldsStackView = UIStackView(arrangedSubviews: [nameTF, emailTF, passwordTF, confirmPasswordTF])
-        
-        popupView.addSubview(nameTF)
-        nameTF.setAnchor(top: loginRegisterSegmentedControl.bottomAnchor,
-                         leading: popupView.leadingAnchor,
-                         bottom: nil,
-                         trailing: popupView.trailingAnchor,
-                         paddingTop: 8,
-                         paddingLeft: 10,
-                         paddingBottom: 0,
-                         paddingRight: 10,
-                         width: 0,
-                         height: 30)
-        
-        popupView.addSubview(emailTF)
-        emailTF.setAnchor(top: nameTF.bottomAnchor,
-                          leading: popupView.leadingAnchor,
-                          bottom: nil,
-                          trailing: popupView.trailingAnchor,
-                          paddingTop: 8,
-                          paddingLeft: 10,
-                          paddingBottom: 0,
-                          paddingRight: 10,
-                          width: 0,
-                          height: 30)
-        
-        popupView.addSubview(passwordTF)
-        passwordTF.setAnchor(top: emailTF.bottomAnchor,
-                             leading: popupView.leadingAnchor,
-                             bottom: nil,
-                             trailing: popupView.trailingAnchor,
-                             paddingTop: 8,
-                             paddingLeft: 10,
-                             paddingBottom: 0,
-                             paddingRight: 10,
-                             width: 0,
-                             height: 30)
-        
-        popupView.addSubview(confirmPasswordTF)
-        confirmPasswordTF.setAnchor(top: passwordTF.bottomAnchor,
-                                    leading: popupView.leadingAnchor,
-                                    bottom: nil,
-                                    trailing: popupView.trailingAnchor,
-                                    paddingTop: 8,
-                                    paddingLeft: 10,
-                                    paddingBottom: 0,
-                                    paddingRight: 10,
-                                    width: 0,
-                                    height: 30)
         
         popupView.addSubview(cancelButton)
         cancelButton.setAnchor(top: nil,
@@ -221,23 +209,37 @@ class AuthView: UIView {
                                bottom: popupView.bottomAnchor,
                                trailing: nil,
                                paddingTop: 0,
-                               paddingLeft: 0,
-                               paddingBottom: 0,
+                               paddingLeft: 8,
+                               paddingBottom: 8,
                                paddingRight: 0,
-                               width: 120,
-                               height: 40)
+                               width: 108,
+                               height: 30)
         
         popupView.addSubview(loginRegisterButton)
         loginRegisterButton.setAnchor(top: nil,
-                               leading: nil,
-                               bottom: popupView.bottomAnchor,
-                               trailing: popupView.trailingAnchor,
-                               paddingTop: 0,
-                               paddingLeft: 0,
-                               paddingBottom: 0,
-                               paddingRight: 0,
-                               width: 120,
-                               height: 40)
+                                      leading: nil,
+                                      bottom: popupView.bottomAnchor,
+                                      trailing: popupView.trailingAnchor,
+                                      paddingTop: 0,
+                                      paddingLeft: 0,
+                                      paddingBottom: 8,
+                                      paddingRight: 8,
+                                      width: 108,
+                                      height: 30)
+        
+        let textFieldsStackView = UIStackView(arrangedSubviews: [nameTF, emailTF, passwordTF, confirmPasswordTF])
+        textFieldsStackView.distribution = .fillProportionally
+        textFieldsStackView.axis = .vertical
+        textFieldsStackView.spacing = 8
+        popupView.addSubview(textFieldsStackView)
+        textFieldsStackView.setAnchor(top: loginRegisterSegmentedControl.bottomAnchor,
+                                      leading: popupView.leadingAnchor,
+                                      bottom: cancelButton.topAnchor,
+                                      trailing: popupView.trailingAnchor,
+                                      paddingTop: 8,
+                                      paddingLeft: 8,
+                                      paddingBottom: 8,
+                                      paddingRight: 8)
     }
     
     @objc func changeWebView() {
@@ -246,6 +248,8 @@ class AuthView: UIView {
             registerHeightConstraint.isActive = false
             loginHeightConstraint.isActive = true
             
+            nameTF.isHidden = true
+            confirmPasswordTF.isHidden = true
             
             print("login")
         } else {
@@ -253,6 +257,12 @@ class AuthView: UIView {
             loginRegisterButton.setTitle("Sign up", for: .normal)
             loginHeightConstraint.isActive = false
             registerHeightConstraint.isActive = true
+            
+            nameTF.isHidden = false
+            confirmPasswordTF.isHidden = false
+        }
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
         }
     }
     
@@ -295,5 +305,15 @@ class AuthView: UIView {
         UIView.animate(withDuration: 0.4) {
             self.layoutIfNeeded()
         }
+    }
+}
+
+
+extension UIStackView {
+    func addBackground(color: UIColor) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subView, at: 0)
     }
 }
