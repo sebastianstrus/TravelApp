@@ -59,7 +59,7 @@ class HomeTableViewCell: UITableViewCell {
         label.text = "2019.06.23-2019.06.17"
         label.textAlignment = .left
         label.textColor = .darkGray
-        label.font = AppFonts.LIST_CELL_DISTANCE_FONT
+        label.font = AppFonts.LIST_CELL_FONT2
         return label
     }()
     
