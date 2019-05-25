@@ -20,6 +20,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         hideKeyboardWhenTappedAround()
         
         setupNavigationBar()
@@ -102,7 +103,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func setupView() {
         postTableView = UITableView()
         view.addSubview(postTableView)
-        postTableView.pinToEdges(view: view)
+        postTableView.pinToSafeEdges(view: view)
         postTableView.delegate = self
         postTableView.dataSource = self
         //postTableView.allowsSelection = true
@@ -110,6 +111,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc private func addTapped() {
-        print("Plus pressed")
+        let authController = AuthController()
+        authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        present(authController, animated: false)
     }
 }

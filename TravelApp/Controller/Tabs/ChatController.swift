@@ -27,7 +27,7 @@ class ChatController: UIViewController {
         let chatView = ChatView()
         self.chatView = chatView
         view.addSubview(chatView)
-        chatView.pinToEdges(view: view)
+        chatView.pinToSafeEdges(view: view)
         
 
     }

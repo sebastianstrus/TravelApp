@@ -14,12 +14,8 @@
 		7D276385228F60D700519C10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D276383228F60D700519C10 /* LaunchScreen.storyboard */; };
 		7D27638D228F636900519C10 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27638C228F636900519C10 /* UITabBarController+Extension.swift */; };
 		7D276390228F64D000519C10 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27638F228F64D000519C10 /* TabBarController.swift */; };
-		7D276396228F65EF00519C10 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D276395228F65EF00519C10 /* LoginController.swift */; };
-		7D276398228F660A00519C10 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D276397228F660A00519C10 /* WelcomeController.swift */; };
-		7D27639A228F661E00519C10 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D276399228F661E00519C10 /* SignUpController.swift */; };
-		7D27639D228F674F00519C10 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27639C228F674F00519C10 /* WelcomeView.swift */; };
-		7D27639F228F675D00519C10 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27639E228F675D00519C10 /* LoginView.swift */; };
-		7D2763A1228F676B00519C10 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763A0228F676B00519C10 /* SignUpView.swift */; };
+		7D276398228F660A00519C10 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D276397228F660A00519C10 /* AuthController.swift */; };
+		7D27639D228F674F00519C10 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27639C228F674F00519C10 /* AuthView.swift */; };
 		7D2763A4228F690D00519C10 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763A3228F690D00519C10 /* Constants.swift */; };
 		7D2763A6228F6A8300519C10 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763A5228F6A8300519C10 /* UIView+Extension.swift */; };
 		7D2763AD228F6E1800519C10 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2763AC228F6E1800519C10 /* AppColors.swift */; };
@@ -39,6 +35,7 @@
 		7D2764492291EF0000519C10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2764482291EF0000519C10 /* Post.swift */; };
 		7D27644B2293525600519C10 /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D27644A2293525600519C10 /* Boogaloo-Regular.ttf */; };
 		7D348E372298CB8100F40530 /* LibreBaskerville-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D348E362298CB8100F40530 /* LibreBaskerville-Bold.ttf */; };
+		7D348E3E2299CB5400F40530 /* Lemonada-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D348E3A2299CB5400F40530 /* Lemonada-Bold.ttf */; };
 		7D82ECA122945F7D00441A3F /* TempData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82ECA022945F7D00441A3F /* TempData.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,12 +49,8 @@
 		7D276386228F60D700519C10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D27638C228F636900519C10 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		7D27638F228F64D000519C10 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		7D276395228F65EF00519C10 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		7D276397228F660A00519C10 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
-		7D276399228F661E00519C10 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
-		7D27639C228F674F00519C10 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		7D27639E228F675D00519C10 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		7D2763A0228F676B00519C10 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		7D276397228F660A00519C10 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		7D27639C228F674F00519C10 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		7D2763A3228F690D00519C10 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D2763A5228F6A8300519C10 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		7D2763AC228F6E1800519C10 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -77,6 +70,7 @@
 		7D2764482291EF0000519C10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7D27644A2293525600519C10 /* Boogaloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Boogaloo-Regular.ttf"; sourceTree = "<group>"; };
 		7D348E362298CB8100F40530 /* LibreBaskerville-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LibreBaskerville-Bold.ttf"; path = "../../../../../Downloads/Libre_Baskerville/LibreBaskerville-Bold.ttf"; sourceTree = "<group>"; };
+		7D348E3A2299CB5400F40530 /* Lemonada-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemonada-Bold.ttf"; path = "../../../../../Downloads/Lemonada/Lemonada-Bold.ttf"; sourceTree = "<group>"; };
 		7D82ECA022945F7D00441A3F /* TempData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,9 +164,7 @@
 		7D276394228F65BC00519C10 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				7D276395228F65EF00519C10 /* LoginController.swift */,
-				7D276397228F660A00519C10 /* WelcomeController.swift */,
-				7D276399228F661E00519C10 /* SignUpController.swift */,
+				7D276397228F660A00519C10 /* AuthController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -180,9 +172,7 @@
 		7D27639B228F673100519C10 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				7D27639C228F674F00519C10 /* WelcomeView.swift */,
-				7D27639E228F675D00519C10 /* LoginView.swift */,
-				7D2763A0228F676B00519C10 /* SignUpView.swift */,
+				7D27639C228F674F00519C10 /* AuthView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -210,6 +200,7 @@
 		7D2763A8228F6B5E00519C10 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				7D348E3A2299CB5400F40530 /* Lemonada-Bold.ttf */,
 				7D27644A2293525600519C10 /* Boogaloo-Regular.ttf */,
 				7D348E362298CB8100F40530 /* LibreBaskerville-Bold.ttf */,
 				7D2763C1228F80AD00519C10 /* AppFonts.swift */,
@@ -320,6 +311,7 @@
 			files = (
 				7D276385228F60D700519C10 /* LaunchScreen.storyboard in Resources */,
 				7D348E372298CB8100F40530 /* LibreBaskerville-Bold.ttf in Resources */,
+				7D348E3E2299CB5400F40530 /* Lemonada-Bold.ttf in Resources */,
 				7D27644B2293525600519C10 /* Boogaloo-Regular.ttf in Resources */,
 				7D276382228F60D700519C10 /* Assets.xcassets in Resources */,
 			);
@@ -337,27 +329,23 @@
 				7D2764442291ECC100519C10 /* UIImageView+Extension.swift in Sources */,
 				7D27643E2291EAC400519C10 /* HomeTableViewCell.swift in Sources */,
 				7D2763C2228F80AD00519C10 /* AppFonts.swift in Sources */,
-				7D276398228F660A00519C10 /* WelcomeController.swift in Sources */,
+				7D276398228F660A00519C10 /* AuthController.swift in Sources */,
 				7D2763C0228F805000519C10 /* UIButton+Extension.swift in Sources */,
-				7D276396228F65EF00519C10 /* LoginController.swift in Sources */,
 				7D2763AD228F6E1800519C10 /* AppColors.swift in Sources */,
 				7D82ECA122945F7D00441A3F /* TempData.swift in Sources */,
 				7D2764492291EF0000519C10 /* Post.swift in Sources */,
-				7D27639A228F661E00519C10 /* SignUpController.swift in Sources */,
 				7D2763BA228F7BF800519C10 /* ChatController.swift in Sources */,
-				7D27639D228F674F00519C10 /* WelcomeView.swift in Sources */,
+				7D27639D228F674F00519C10 /* AuthView.swift in Sources */,
 				7D2763C4228F810100519C10 /* Strings.swift in Sources */,
 				7D2763BC228F7C1D00519C10 /* String+Extension.swift in Sources */,
 				7D2763BE228F7F0000519C10 /* UITextField+Extension.swift in Sources */,
 				7D2763C6228F813D00519C10 /* UIViewController+Extension.swift in Sources */,
-				7D2763A1228F676B00519C10 /* SignUpView.swift in Sources */,
 				7D2763AF228F6E8F00519C10 /* UIColor+Extension.swift in Sources */,
 				7D276378228F60D600519C10 /* AppDelegate.swift in Sources */,
 				7D1AD12E2294B9C700B7D4B7 /* ChatView.swift in Sources */,
 				7D276380228F60D600519C10 /* TravelApp.xcdatamodeld in Sources */,
 				7D2763B6228F7BC500519C10 /* VouchersController.swift in Sources */,
 				7D276390228F64D000519C10 /* TabBarController.swift in Sources */,
-				7D27639F228F675D00519C10 /* LoginView.swift in Sources */,
 				7D2763B2228F7BA100519C10 /* HomeController.swift in Sources */,
 				7D27638D228F636900519C10 /* UITabBarController+Extension.swift in Sources */,
 				7D2763A4228F690D00519C10 /* Constants.swift in Sources */,
