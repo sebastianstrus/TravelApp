@@ -20,7 +20,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        searchedPosts = allPosts.filter({$0.title!.prefix(searchText.count) == searchText})
+        searchedPosts = allPosts.filter({$0.title!.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         postTableView.reloadData()
     }
