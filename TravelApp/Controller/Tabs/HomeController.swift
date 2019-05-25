@@ -8,16 +8,29 @@
 
 import UIKit
 
-class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
+class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchBarDelegate {
     
-    private var homeView: UITableView!
+    
+    private var searchController: UISearchController!
+    private var postTableView: UITableView!
     private let cellId = "PostCellId"
-    
     private var allPosts: [Post]  = []
+    private var searchedPosts = [Post]()
+    private var searching = false
     
-    private var postsToShow: [Post] = []
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        searchedPosts = allPosts.filter({$0.title!.prefix(searchText.count) == searchText})
+        searching = true
+        postTableView.reloadData()
+    }
     
-    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        postTableView.reloadData()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,66 +41,62 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         allPosts = TempData.getPosts()
         
-        postsToShow = allPosts
-        //let a = Post(title: <#T##String#>, imageName: <#T##String#>)
-
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         setupView()
     }
     
     private func setupView() {
 
-        homeView = UITableView()
-        view.addSubview(homeView)
-        homeView.pinToEdges(view: view)
-        homeView.delegate = self
-        homeView.dataSource = self
-        homeView.allowsSelection = true
-        homeView.register(HomeTableViewCell.self, forCellReuseIdentifier: cellId)
+        postTableView = UITableView()
+        view.addSubview(postTableView)
+        postTableView.pinToEdges(view: view)
+        postTableView.delegate = self
+        postTableView.dataSource = self
+        postTableView.allowsSelection = true
+        postTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource methods
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return postsToShow.count
+        return (searching ? searchedPosts : allPosts).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeTableViewCell
-     
-        let post = postsToShow[indexPath.row]
+        
+        let post = (searching ? searchedPosts : allPosts)[indexPath.row]
         cell.setup(imageName: post.imageName!,
                    numberCandidates: post.numberOfCandidates!,
                    title: post.title!)
-     return cell
+        return cell
      }
     
-    // MARK: - UITableViewDelegate functions
+    // MARK: - UITableViewDelegate methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
 
     
-    // MARK: - Private functions
+    // MARK: - Private methods
     fileprivate func setupNavigationBar() {
 
-        let searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.dimsBackgroundDuringPresentation = true
 
-        searchController.delegate = self
-        
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
         let searchBar = searchController.searchBar
         searchBar.tintColor = UIColor.white
         searchBar.barTintColor = UIColor.white
+        searchBar.showsCancelButton = true
+        
         
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             //textfield.textColor = UIColor.mainBlue
@@ -104,11 +113,11 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationItem.searchController = searchController
 
 
+        navigationItem.searchController?.searchBar.delegate = self
         let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         self.navigationItem.rightBarButtonItem = addItem
         
         
-        // title
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.title = "Trips"
@@ -117,36 +126,5 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func addTapped() {
         print("Plus pressed")
-        //homeView.toggleBar()
     }
-    
-    //TODO: simplify: let filtered = numbers.filter({ return $0 == 3 })
-//    @objc func handleSearch() {
-//        postsToShow.removeAll()
-//        guard let word = homeView.getWord(), !word.isEmpty else { return }
-//
-//        for post in allPosts {
-//            if post.title?.lowercased().contains((word).lowercased()) == true {
-//                postsToShow.append(post)
-//            }
-//        }
-//        animateTable()
-//    }
-//
-//    func animateTable() {
-//        homeView.tableView.reloadData()
-//        let cells = homeView.tableView.visibleCells
-//        let tableViewHeight = homeView.tableView.bounds.size.height
-//        for cell in cells {
-//            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
-//        }
-//        var delayCounter = 0
-//
-//        for cell in cells {
-//            UIView.animate(withDuration: 1.3, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-//                cell.transform = CGAffineTransform.identity
-//            }, completion: nil)
-//            delayCounter += 1
-//        }
-//    }
 }
