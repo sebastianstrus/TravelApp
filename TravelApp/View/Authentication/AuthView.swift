@@ -27,15 +27,11 @@ class AuthView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - All subviews
     fileprivate let blurView: UIVisualEffectView  = {
         let view = UIVisualEffectView (effect: nil)
         return view
     }()
-
-    
-    
     
     fileprivate let popupView: UIView = {
         let view = UIView()
@@ -136,39 +132,9 @@ class AuthView: UIView {
                             height: 0)
         
         popupView.widthAnchor.constraint(equalToConstant: 240).isActive = true
-        
-        
-        // zmiana na 220 i 296
-        
-        
-        // 224 lub 300
-        
-        
-        
-        // 8
-        // 60
-        
-        //8
-        //30
-        //8
-        
-        //8
-        //stackview 60 + 8, 120 + 24
-        //8
-        
-        
-        
-        
-        
-        
-        // reszta: 152
-        
-        
-        //30
-        //8
-        
-        loginHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 220)
-        registerHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 296)
+
+        loginHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 228)
+        registerHeightConstraint = popupView.heightAnchor.constraint(equalToConstant: 304)
         loginHeightConstraint.isActive = true
         
         popupView.centerXAnchor.constraint(equalTo: blurView.centerXAnchor).isActive = true
@@ -198,11 +164,11 @@ class AuthView: UIView {
                                                 trailing: popupView.trailingAnchor,
                                                 paddingTop: 8,
                                                 paddingLeft: 10,
-                                                paddingBottom: 8,
+                                                paddingBottom: 0,
                                                 paddingRight: 10,
                                                 width: 0,
                                                 height: 30)
-        
+
         popupView.addSubview(cancelButton)
         cancelButton.setAnchor(top: nil,
                                leading: popupView.leadingAnchor,
@@ -290,7 +256,6 @@ class AuthView: UIView {
         }
     }
     
-    
     func handleKeyboardUp() {
         self.yCenterAnchor.isActive = false
         self.yUpAnchor.isActive = true
@@ -307,7 +272,6 @@ class AuthView: UIView {
         }
     }
 }
-
 
 extension UIStackView {
     func addBackground(color: UIColor) {
