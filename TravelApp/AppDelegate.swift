@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarVC = TabBarController()
         window?.rootViewController = tabBarVC
         
+        setStatusBar()
+        
         return true
     }
 
@@ -93,6 +95,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    private func setStatusBar() {
+        if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+            statusBar.setValue(UIColor.white, forKey: "foregroundColor")
         }
     }
 
