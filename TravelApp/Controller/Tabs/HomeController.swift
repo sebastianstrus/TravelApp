@@ -21,6 +21,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         
+        
+        
         hideKeyboardWhenTappedAround()
         
         setupNavigationBar()
@@ -46,6 +48,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let post = (searching ? searchedPosts : allPosts)[indexPath.row]
         cell.setup(imageName: post.imageName!,
+                   date: post.date!,
                    numberCandidates: post.numberOfCandidates!,
                    title: post.title!)
         return cell

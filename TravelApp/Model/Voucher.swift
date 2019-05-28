@@ -28,9 +28,12 @@ struct Voucher: Codable {
 struct VoucherTemp: Codable {
     
     var title: String?
+    var info: String?
+    var date: Int64!
     
-    init(title: String){
+    init(title: String, info: String, date: Int64){
         self.title = title
-
+        self.info = info
+        self.date = date
     }
 }

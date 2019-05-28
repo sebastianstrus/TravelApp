@@ -12,7 +12,6 @@ class HomeTableViewCell: UITableViewCell {
     
     let cellView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
         view.layer.borderWidth = 0.5
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.setCellShadow()
@@ -149,8 +148,9 @@ class HomeTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(imageName: String, numberCandidates: Int, title: String) {
+    func setup(imageName: String, date: String, numberCandidates: Int, title: String) {
         pictureImageView.image = UIImage(named: imageName)
+        dateLabel.text = date
         candidatesLabel.text = "\(numberCandidates)"
         titleLabel.text = title
     }

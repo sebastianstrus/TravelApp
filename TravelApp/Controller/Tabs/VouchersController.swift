@@ -26,17 +26,6 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
         setupNavigationBar()
         setupView()
         
-        let screenWidth = Device.SCREEN_WIDTH
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        print("screenWidth: \(screenWidth)")
-        // 343
-        let side = (screenWidth - 32)/3
-        print("side: \(side)")
-        layout.itemSize = CGSize(width: screenWidth/3-50, height: screenWidth/3-50)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        vouchersView.collectionView.collectionViewLayout = layout
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,16 +41,6 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: - UICollectionViewDataSource methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return vouchers.count
@@ -69,28 +48,29 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-
-        cell.backgroundColor = UIColor.darkGray
-        cell.layer.borderWidth = 0.5
-        
-        let side = CGFloat(Device.SCREEN_WIDTH) / 3
-        cell.frame.size.width = side //CGFloat(Device.SCREEN_WIDTH - 32) / 3)
-        cell.frame.size.height = side //CGFloat(Device.SCREEN_WIDTH / 3 - 5)
-        
+        cell.setCellShadow()
         return cell
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout methods
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        print("Device.SCREEN_WIDTH: \(Device.SCREEN_WIDTH)")
-        let side: Int = (Device.SCREEN_WIDTH - 32) / 3
-        return CGSize(width: 118, height: 118)
-    }*/
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width - 40
+        return CGSize(width: collectionViewWidth/3, height: collectionViewWidth/3)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+
+    
     
     // MARK: - Private methods
     fileprivate func setupNavigationBar() {
@@ -103,7 +83,9 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @objc private func addTapped() {
-        print("addTapped")
+        let authController = AuthController()
+        authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        present(authController, animated: false)
     }
     
     private func setupView() {
@@ -116,3 +98,4 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
         vouchersView.registerCell(className: UICollectionViewCell.self, id: cellId)
     }
 }
+

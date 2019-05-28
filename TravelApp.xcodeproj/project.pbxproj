@@ -38,6 +38,7 @@
 		7D348E3E2299CB5400F40530 /* Lemonada-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D348E3A2299CB5400F40530 /* Lemonada-Bold.ttf */; };
 		7D348E41229B32AA00F40530 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D348E40229B32AA00F40530 /* VouchersView.swift */; };
 		7D348E43229B383200F40530 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D348E42229B383200F40530 /* Voucher.swift */; };
+		7D348E45229D9D6300F40530 /* VoucherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D348E44229D9D6300F40530 /* VoucherCell.swift */; };
 		7D82ECA122945F7D00441A3F /* TempData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82ECA022945F7D00441A3F /* TempData.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		7D348E3A2299CB5400F40530 /* Lemonada-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemonada-Bold.ttf"; path = "../../../../../Downloads/Lemonada/Lemonada-Bold.ttf"; sourceTree = "<group>"; };
 		7D348E40229B32AA00F40530 /* VouchersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersView.swift; sourceTree = "<group>"; };
 		7D348E42229B383200F40530 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
+		7D348E44229D9D6300F40530 /* VoucherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherCell.swift; sourceTree = "<group>"; };
 		7D82ECA022945F7D00441A3F /* TempData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 				7D2764452291EE8000519C10 /* Tabs */,
 				7D27639B228F673100519C10 /* Authentication */,
 				7D27643D2291EAC400519C10 /* HomeTableViewCell.swift */,
+				7D348E44229D9D6300F40530 /* VoucherCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,9 +244,9 @@
 			isa = PBXGroup;
 			children = (
 				7D2763B1228F7BA100519C10 /* HomeController.swift */,
-				7D2763B3228F7BB600519C10 /* AccountController.swift */,
 				7D2763B5228F7BC500519C10 /* VouchersController.swift */,
 				7D2763B9228F7BF800519C10 /* ChatController.swift */,
+				7D2763B3228F7BB600519C10 /* AccountController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				7D2763AF228F6E8F00519C10 /* UIColor+Extension.swift in Sources */,
 				7D276378228F60D600519C10 /* AppDelegate.swift in Sources */,
 				7D1AD12E2294B9C700B7D4B7 /* ChatView.swift in Sources */,
+				7D348E45229D9D6300F40530 /* VoucherCell.swift in Sources */,
 				7D348E41229B32AA00F40530 /* VouchersView.swift in Sources */,
 				7D276380228F60D600519C10 /* TravelApp.xcdatamodeld in Sources */,
 				7D2763B6228F7BC500519C10 /* VouchersController.swift in Sources */,

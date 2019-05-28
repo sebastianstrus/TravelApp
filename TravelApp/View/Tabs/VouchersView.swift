@@ -31,7 +31,7 @@ class VouchersView: UIView {
         layout.minimumLineSpacing = 16
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .clear
+        cv.backgroundColor = .white
         return cv
     }()
     
@@ -45,7 +45,7 @@ class VouchersView: UIView {
     
     // MARK: - Private functions
     fileprivate func setup() {
-        backgroundColor = UIColor.lightGray
+        //backgroundColor = UIColor.lightGray
         addSubview(backgroundImageView)
         backgroundImageView.pinToSafeEdges(view: self)
         

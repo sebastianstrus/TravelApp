@@ -21,6 +21,7 @@ class TabBarController: UITabBarController {
         tabBar.barTintColor = UIColor.mainBlue
         tabBar.tintColor = UIColor.white
         tabBar.unselectedItemTintColor = UIColor.unselectedTabGray
+        tabBar.isTranslucent = false
         
         let homeController = createNavController(vc: HomeController(), image: "trips_icon")
         homeController.tabBarItem.title = "Trips".localized
