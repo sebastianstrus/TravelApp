@@ -11,6 +11,7 @@ import UIKit
 class AuthView: UIView {
     
     var cancelAction: (() -> Void)?
+    var submitAction: (() -> Void)?
 
     var yCenterAnchor: NSLayoutConstraint!
     var yUpAnchor: NSLayoutConstraint!
@@ -61,34 +62,42 @@ class AuthView: UIView {
         return sc
     }()
     
-    fileprivate let nameTF: UITextField = {
+    let nameTF: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Name"
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
         tf.isHidden = true
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
         return tf
     }()
     
-    fileprivate let emailTF: UITextField = {
+    let emailTF: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Email"
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
         return tf
     }()
     
-    fileprivate let passwordTF: UITextField = {
+    let passwordTF: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
         return tf
     }()
     
-    fileprivate let confirmPasswordTF: UITextField = {
+    let confirmPasswordTF: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Confirm password"
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
         tf.isHidden = true
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
@@ -115,7 +124,7 @@ class AuthView: UIView {
         button.layer.cornerRadius = 5
         button.setTitleColor(UIColor.mainBlue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSubmit), for: .touchUpInside)
         return button
     }()
     
@@ -238,12 +247,13 @@ class AuthView: UIView {
             self.popupView.alpha = 0
             self.popupView.transform = CGAffineTransform.init(scaleX: Device.IS_IPHONE ? 2 : 4, y: Device.IS_IPHONE ? 2 : 4)
         }) { _ in
-            self.cancelAction!()
+            self.cancelAction?()
         }
     }
     
     @objc fileprivate func handleSubmit() {
-        print("submit")
+        print("handleSubmit")
+        submitAction?()
     }
     
     // MARK: - Public actions

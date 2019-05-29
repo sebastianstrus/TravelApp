@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class VouchersController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
@@ -18,6 +19,8 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
             vouchersView.toggleInfoLabel(isEmpty: vouchers.isEmpty)
         }
     }
+    
+    var isLoggedIn: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,8 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        isLoggedIn = Auth.auth().currentUser?.uid != nil
+        print("VouchersController isLoggedIn: \(String(describing: isLoggedIn))")
 //        CanvasObjectController.shared.fetchCanvasObjects()
 //        canvases =  CanvasObjectController.shared.canvases
         vouchers = TempData.getVouchers()

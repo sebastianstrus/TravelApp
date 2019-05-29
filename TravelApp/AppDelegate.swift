@@ -8,11 +8,14 @@
 
 import UIKit
 import CoreData
+import Firebase
+import KVNProgress
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var basicConfiguration: KVNProgressConfiguration?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -26,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setStatusBar()
         
+        FirebaseApp.configure()
+        presetProgressHUD()
         return true
     }
 
@@ -102,6 +107,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
             statusBar.setValue(UIColor.white, forKey: "foregroundColor")
         }
+    }
+    
+    // MARK: - Helpers
+    func presetProgressHUD() {
+        basicConfiguration = KVNProgressConfiguration.default()
+        basicConfiguration?.isFullScreen = true
+        basicConfiguration?.backgroundType = KVNProgressBackgroundType.blurred
+        basicConfiguration?.statusFont = UIFont(name: "HelveticaNeue", size: 24.0)
+        basicConfiguration?.minimumSuccessDisplayTime = 0.5
+        KVNProgress.setConfiguration(self.basicConfiguration)
+        
+        //! workaround to solve problem with displaying "frosted glass" for the full screen messages
+        KVNProgress.show(0.0, status: "Loading", on: nil)
+        KVNProgress.dismiss()
     }
 
 }

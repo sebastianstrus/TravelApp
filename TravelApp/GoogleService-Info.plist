@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>181388909450-9ajhdm8kjpoobi7o5l2i0guo735rcmjl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.181388909450-9ajhdm8kjpoobi7o5l2i0guo735rcmjl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCmsW9_Q4qAVPNIZC7Tv_KJX0a8Y-g7tHE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>181388909450</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sebastianstrus.traveltube</string>
+	<key>PROJECT_ID</key>
+	<string>traveltube-e39f1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>traveltube-e39f1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:181388909450:ios:0aa5d02a8c33bb8a</string>
+	<key>DATABASE_URL</key>
+	<string>https://traveltube-e39f1.firebaseio.com</string>
+</dict>
+</plist>

@@ -24,3 +24,13 @@ struct Device {
     static let IS_IPHONE_6P        = IS_IPHONE && SCREEN_MAX_LENGTH == 736
     static let IS_IPHONE_X         = IS_IPHONE && SCREEN_MAX_LENGTH == 812
 }
+
+// Constants for URL
+struct AppURLs {
+    static let TRAVELTUBE_DB = "https://traveltube-e39f1.firebaseio.com"
+}
+
+struct AppKeys {
+    static let APP_TITLE = "TravelTube"
+    
+}

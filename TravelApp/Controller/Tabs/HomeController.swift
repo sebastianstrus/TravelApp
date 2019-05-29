@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchBarDelegate {
     
@@ -17,11 +18,10 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var searchedPosts = [Post]()
     private var searching = false
     
+    var isLoggedIn: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         
         hideKeyboardWhenTappedAround()
         
@@ -32,6 +32,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isLoggedIn = Auth.auth().currentUser?.uid != nil
+        print("HomeController isLoggedIn: \(String(describing: isLoggedIn))")
     }
     
     // MARK: - UITableViewDataSource methods
@@ -114,8 +120,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc private func addTapped() {
-        let authController = AuthController()
-        authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        present(authController, animated: false)
+        if !isLoggedIn {
+            let authController = AuthController()
+            authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+            present(authController, animated: false)
+        } else {
+            print("You need to log in")
+        }
     }
 }

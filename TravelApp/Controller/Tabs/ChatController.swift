@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatController: UIViewController {
 
     private var chatView: ChatView!
+    
+    var isLoggedIn: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,13 @@ class ChatController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        isLoggedIn = Auth.auth().currentUser?.uid != nil
+        print("ChatController isLoggedIn: \(String(describing: isLoggedIn))")
     }
     
     private func setupView() {
