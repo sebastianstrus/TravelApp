@@ -10,17 +10,18 @@ import UIKit
 import Firebase
 import KVNProgress
 
+
 class AuthController: UIViewController {
     
     var authView: AuthView!
     
+    var didLoggedIn: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
         
         handleKeyboard()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +94,7 @@ class AuthController: UIViewController {
             
             KVNProgress.dismiss()
             self.dismiss(animated: false)
+            self.didLoggedIn?()
 //            let tabBarVC = TabBarController()
 //            self.present(tabBarVC, animated: true, completion: nil)
         }
@@ -168,6 +170,7 @@ class AuthController: UIViewController {
             self.resetForm()
             KVNProgress.dismiss()
             self.dismiss(animated: false)
+            self.didLoggedIn?()
 //            let tabBarVC = TabBarController()
 //            self.present(tabBarVC, animated: true, completion: nil)
         })

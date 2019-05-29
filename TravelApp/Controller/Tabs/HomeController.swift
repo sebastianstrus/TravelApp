@@ -11,6 +11,7 @@ import Firebase
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchBarDelegate {
     
+    
     private var searchController: UISearchController!
     private var postTableView: UITableView!
     private let cellId = "PostCellId"
@@ -24,13 +25,17 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         hideKeyboardWhenTappedAround()
         
-        setupNavigationBar()
         
         allPosts = TempData.getPosts()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavigationBar()
     }
     
     // MARK: - UITableViewDataSource methods
@@ -94,13 +99,54 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationItem.searchController = searchController
 
         navigationItem.searchController?.searchBar.delegate = self
-        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        self.navigationItem.rightBarButtonItem = addItem
+        
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.title = "Trips"
+        
+        setupButton()
+        
     }
+    
+    func setupButton() {
+        let loginItem = UIBarButtonItem(title: "Log in", style: UIBarButtonItem.Style.plain, target: self, action: #selector(loginTapped))
+        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        
+        if (Auth.auth().currentUser?.uid != nil) {
+            self.navigationItem.rightBarButtonItem = addItem
+        } else {
+            self.navigationItem.rightBarButtonItem = loginItem
+        }
+    }
+    
+
+    @objc private func addTapped() {
+        let createPostController = CreatePostController()
+        createPostController.title = "New Trip"
+        createPostController.view.backgroundColor = UIColor.lightGray
+        self.navigationController?.pushViewController(createPostController, animated: true)
+    }
+    
+    @objc private func loginTapped() {
+        let authController = AuthController()
+        
+        // tell parent controller that you are logged in when you close the child controller
+        authController.didLoggedIn = { () in
+            self.setupButton()
+        }
+        
+        authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        present(authController, animated: false)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     private func setupView() {
         postTableView = UITableView()
@@ -112,16 +158,5 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         postTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
-    @objc private func addTapped() {
-        if (Auth.auth().currentUser?.uid != nil) {
-            let createPostController = CreatePostController()
-            createPostController.title = "New Trip"
-            createPostController.view.backgroundColor = UIColor.lightGray
-            self.navigationController?.pushViewController(createPostController, animated: true)
-        } else {
-            let authController = AuthController()
-            authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            present(authController, animated: false)
-        }
-    }
+
 }

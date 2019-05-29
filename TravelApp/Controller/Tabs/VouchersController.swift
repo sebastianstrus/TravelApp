@@ -26,7 +26,6 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
 
-        setupNavigationBar()
         setupView()
         
     }
@@ -34,8 +33,7 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        isLoggedIn = Auth.auth().currentUser?.uid != nil
-        print("VouchersController isLoggedIn: \(String(describing: isLoggedIn))")
+        setupNavigationBar()
 //        CanvasObjectController.shared.fetchCanvasObjects()
 //        canvases =  CanvasObjectController.shared.canvases
         vouchers = TempData.getVouchers()
@@ -83,31 +81,39 @@ class VouchersController: UIViewController, UICollectionViewDelegate, UICollecti
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.title = "Vouchers"
         
-        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        self.navigationItem.rightBarButtonItem = addItem
+        setupButton()
     }
     
+    func setupButton() {
+        let loginItem = UIBarButtonItem(title: "Log in", style: UIBarButtonItem.Style.plain, target: self, action: #selector(loginTapped))
+        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        
+        if (Auth.auth().currentUser?.uid != nil) {
+            self.navigationItem.rightBarButtonItem = addItem
+        } else {
+            self.navigationItem.rightBarButtonItem = loginItem
+        }
+    }
+    
+
     
     @objc private func addTapped() {
-        if (Auth.auth().currentUser?.uid != nil) {
-            print("You need to log in")
-            let alert = UIAlertController(title: "Plus pressed", message: "You are logged in.", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Cancel".localized, style: Device.IS_IPAD ? .default : .cancel, handler: nil))
-            
-            // support for iPAD:
-            //            if Device.IS_IPAD {
-            //                alert.popoverPresentationController?.sourceView = self.accountView
-            //                alert.popoverPresentationController?.sourceRect = CGRect(x: view.center.x, y: view.center.y, width: 0, height: 0)
-            //                alert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-            //            }
-            
-            self.present(alert, animated: true)
-        } else {
-            let authController = AuthController()
-            authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            present(authController, animated: false)
+        let createPostController = CreatePostController()
+        createPostController.title = "New Voucher"
+        createPostController.view.backgroundColor = UIColor.lightGray
+        self.navigationController?.pushViewController(createPostController, animated: true)
+    }
+    
+    @objc private func loginTapped() {
+        let authController = AuthController()
+        
+        // tell parent controller that you are logged in when you close the child controller
+        authController.didLoggedIn = { () in
+            self.setupButton()
         }
+        
+        authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        present(authController, animated: false)
     }
 
     private func setupView() {

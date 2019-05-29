@@ -16,6 +16,7 @@ extension UIColor {
     
     class var unselectedTabGray: UIColor { return UIColor(r: 100, g: 100, b: 100)}
     class var mainBlue: UIColor { return UIColor(r: 105, g: 159, b: 221)}
+    class var greyText: UIColor { return UIColor(r: 86, g: 86, b: 86)}
     
     var GREEN_BORDER: UIColor { return UIColor(r: 80, g: 227, b: 194)}
     var RED_BORDER: UIColor { return UIColor(r: 204, g: 0, b: 0)}

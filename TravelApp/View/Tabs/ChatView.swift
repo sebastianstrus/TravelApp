@@ -23,7 +23,7 @@ class ChatView: UIView {
     
     let label1: UILabel = {
         let label = UILabel()
-        label.text = "Hi Humberto, how are you?"
+        label.text = "Hi Anna, how are you?"
         label.textColor = .mainBlue
         label.font = AppFonts.CHAT_FONT
         return label

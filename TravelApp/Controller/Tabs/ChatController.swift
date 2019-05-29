@@ -13,14 +13,11 @@ class ChatController: UIViewController {
 
     private var chatView: ChatView!
     
-    var isLoggedIn: Bool!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         view.backgroundColor = UIColor.white
         
-        setupNavigationBar()
 
         // Do any additional setup after loading the view.
         setupView()
@@ -29,8 +26,35 @@ class ChatController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        isLoggedIn = Auth.auth().currentUser?.uid != nil
-        print("ChatController isLoggedIn: \(String(describing: isLoggedIn))")
+        setupNavigationBar()
+    }
+    
+    fileprivate func setupNavigationBar() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.title = "Chat"
+        
+        let loginItem = UIBarButtonItem(title: "Log in", style: UIBarButtonItem.Style.plain, target: self, action: #selector(loginTapped))
+        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        
+        if (Auth.auth().currentUser?.uid != nil) {
+            self.navigationItem.rightBarButtonItem = addItem
+        } else {
+            self.navigationItem.rightBarButtonItem = loginItem
+        }
+    }
+    
+    @objc private func addTapped() {
+        let createPostController = CreateVoucherController()
+        createPostController.title = "New Voucher"
+        createPostController.view.backgroundColor = UIColor.lightGray
+        self.navigationController?.pushViewController(createPostController, animated: true)
+    }
+    
+    @objc private func loginTapped() {
+        let authController = AuthController()
+        authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        present(authController, animated: false)
     }
     
     private func setupView() {
@@ -38,27 +62,5 @@ class ChatController: UIViewController {
         self.chatView = chatView
         view.addSubview(chatView)
         chatView.pinToSafeEdges(view: view)
-        
-
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    
-    fileprivate func setupNavigationBar() {
-
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.title = "Chat"
-        
     }
 }

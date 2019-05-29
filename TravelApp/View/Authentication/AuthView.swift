@@ -67,6 +67,8 @@ class AuthView: UIView {
         tf.placeholder = "Name"
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
+        tf.tintColor = UIColor.greyText
+        tf.textColor = UIColor.greyText
         tf.isHidden = true
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
@@ -78,6 +80,8 @@ class AuthView: UIView {
         tf.placeholder = "Email"
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
+        tf.tintColor = UIColor.greyText
+        tf.textColor = UIColor.greyText
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
         return tf
@@ -88,6 +92,9 @@ class AuthView: UIView {
         tf.placeholder = "Password"
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
+        tf.tintColor = UIColor.greyText
+        tf.textColor = UIColor.greyText
+        tf.isSecureTextEntry = true
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
         return tf
@@ -98,6 +105,9 @@ class AuthView: UIView {
         tf.placeholder = "Confirm password"
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
+        tf.tintColor = UIColor.greyText
+        tf.textColor = UIColor.greyText
+        tf.isSecureTextEntry = true
         tf.isHidden = true
         tf.borderStyle = UITextField.BorderStyle.roundedRect
         tf.layer.borderColor = UIColor.mainBlue.cgColor
