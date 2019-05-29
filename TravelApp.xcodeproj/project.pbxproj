@@ -42,6 +42,7 @@
 		7D348E47229DC70100F40530 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D348E46229DC70100F40530 /* GoogleService-Info.plist */; };
 		7D348E49229DD0DF00F40530 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D348E48229DD0DF00F40530 /* AccountView.swift */; };
 		7D348E4B229DE32200F40530 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D348E4A229DE32200F40530 /* Date+Extension.swift */; };
+		7D348E4D229EF94400F40530 /* CreatePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D348E4C229EF94400F40530 /* CreatePostController.swift */; };
 		7D82ECA122945F7D00441A3F /* TempData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82ECA022945F7D00441A3F /* TempData.swift */; };
 		CD367FA897071B93754101C7 /* Pods_TravelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB7539EEF2A196D8295073F /* Pods_TravelApp.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		7D348E46229DC70100F40530 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D348E48229DD0DF00F40530 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		7D348E4A229DE32200F40530 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7D348E4C229EF94400F40530 /* CreatePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostController.swift; sourceTree = "<group>"; };
 		7D82ECA022945F7D00441A3F /* TempData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempData.swift; sourceTree = "<group>"; };
 		ADB7539EEF2A196D8295073F /* Pods_TravelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78B29C75E2988AE1326886B /* Pods-TravelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.release.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				7D2763B5228F7BC500519C10 /* VouchersController.swift */,
 				7D2763B9228F7BF800519C10 /* ChatController.swift */,
 				7D2763B3228F7BB600519C10 /* AccountController.swift */,
+				7D348E4C229EF94400F40530 /* CreatePostController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				7D348E45229D9D6300F40530 /* VoucherCell.swift in Sources */,
 				7D348E41229B32AA00F40530 /* VouchersView.swift in Sources */,
 				7D276380228F60D600519C10 /* TravelApp.xcdatamodeld in Sources */,
+				7D348E4D229EF94400F40530 /* CreatePostController.swift in Sources */,
 				7D2763B6228F7BC500519C10 /* VouchersController.swift in Sources */,
 				7D276390228F64D000519C10 /* TabBarController.swift in Sources */,
 				7D2763B2228F7BA100519C10 /* HomeController.swift in Sources */,

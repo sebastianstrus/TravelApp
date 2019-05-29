@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import KVNProgress
 
 class AuthController: UIViewController {
     
@@ -67,7 +68,37 @@ class AuthController: UIViewController {
     }
     
     // MARK: - Events
-    fileprivate func handleSubmit() {
+    func handleSubmit() {
+        authView.isLogin() ? handleLogin() : handleRegister()
+    }
+    
+    func handleLogin() {
+        
+        //validateForm()
+        
+        guard let email = authView.emailTF.text, email.isValidEmail(), let password = authView.passwordTF.text, authView.passwordTF.text != "" else {
+            print("Wrong user data")
+            return
+        }
+        print("email: \(email)")
+        print("password: \(password)")
+        
+        KVNProgress.show(withStatus: "Loading...")
+        Auth.auth().signIn(withEmail: email, password: password) { (loginResult, error) in
+            if error != nil {
+                print(error!)
+                KVNProgress.showError(withStatus: "Wrong email or password.")
+                return
+            }
+            
+            KVNProgress.dismiss()
+            self.dismiss(animated: false)
+//            let tabBarVC = TabBarController()
+//            self.present(tabBarVC, animated: true, completion: nil)
+        }
+    }
+    
+    fileprivate func handleRegister() {
         //validateForm()
         
         guard let name = authView.nameTF.text, authView.nameTF.text != "" else { return }
@@ -75,10 +106,10 @@ class AuthController: UIViewController {
         guard let password = authView.passwordTF.text, authView.passwordTF.text != "" else { return }
         guard authView.confirmPasswordTF.text != "" else { return }
         
-        //KVNProgress.show(withStatus: "Creating account...")
+        KVNProgress.show(withStatus: "Creating account...")
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if error != nil {
-                //KVNProgress.showError(withStatus: "Couldn't create account.", on: nil)
+                KVNProgress.showError(withStatus: "Couldn't create account.", on: nil)
                 print(error!)
                 return
             }
@@ -128,16 +159,17 @@ class AuthController: UIViewController {
         let usersReference = ref.child("users").child(uid)
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             if err != nil {
-                //KVNProgress.dismiss()
+                KVNProgress.dismiss()
                 print("Couldn't save child values")
                 print(err!)
                 return
             }
             print("User saved successfully into Firebase")
             self.resetForm()
-            //KVNProgress.dismiss()
-            let tabBarVC = TabBarController()
-            self.present(tabBarVC, animated: true, completion: nil)
+            KVNProgress.dismiss()
+            self.dismiss(animated: false)
+//            let tabBarVC = TabBarController()
+//            self.present(tabBarVC, animated: true, completion: nil)
         })
     }
     

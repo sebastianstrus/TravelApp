@@ -18,7 +18,6 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var searchedPosts = [Post]()
     private var searching = false
     
-    var isLoggedIn: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +31,6 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         setupView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        isLoggedIn = Auth.auth().currentUser?.uid != nil
-        print("HomeController isLoggedIn: \(String(describing: isLoggedIn))")
     }
     
     // MARK: - UITableViewDataSource methods
@@ -120,12 +113,15 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc private func addTapped() {
-        if !isLoggedIn {
+        if (Auth.auth().currentUser?.uid != nil) {
+            let createPostController = CreatePostController()
+            createPostController.title = "New Trip"
+            createPostController.view.backgroundColor = UIColor.lightGray
+            self.navigationController?.pushViewController(createPostController, animated: true)
+        } else {
             let authController = AuthController()
             authController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
             present(authController, animated: false)
-        } else {
-            print("You need to log in")
         }
     }
 }

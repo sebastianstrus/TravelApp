@@ -281,6 +281,10 @@ class AuthView: UIView {
             self.layoutIfNeeded()
         }
     }
+    
+    func isLogin() -> Bool {
+        return loginRegisterSegmentedControl.selectedSegmentIndex == 0        
+    }
 }
 
 extension UIStackView {
